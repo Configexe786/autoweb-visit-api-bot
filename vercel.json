@@ -5,8 +5,15 @@
       "use": "@vercel/python"
     }
   ],
-  "rewrites": [
-    { "source": "/(.*)", "destination": "api/index.py" }
+  "routes": [
+    {
+      "src": "/api/keep-alive",
+      "dest": "api/index.py"
+    },
+    {
+      "src": "/",
+      "dest": "api/index.py"
+    }
   ],
   "crons": [
     {
