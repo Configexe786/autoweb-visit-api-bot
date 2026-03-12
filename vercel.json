@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/api/index" }
-  ],
-  "crons": [
+  "builds": [
     {
-      "path": "/api/keep-alive",
-      "schedule": "0 */4 * * *"
+      "src": "api/index.py",
+      "use": "@vercel/python"
     }
+  ],
+  "rewrites": [
+    { "source": "/api/keep-alive", "destination": "/api/index" },
+    { "source": "/", "destination": "/api/index" }
   ]
 }
