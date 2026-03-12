@@ -1,5 +1,4 @@
 {
-  "version": 2,
   "builds": [
     {
       "src": "api/index.py",
@@ -7,7 +6,12 @@
     }
   ],
   "rewrites": [
-    { "source": "/api/keep-alive", "destination": "/api/index" },
-    { "source": "/", "destination": "/api/index" }
+    { "source": "/(.*)", "destination": "api/index.py" }
+  ],
+  "crons": [
+    {
+      "path": "/api/keep-alive",
+      "schedule": "0 */4 * * *"
+    }
   ]
 }
